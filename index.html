@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio | Huy</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      background-color: #0d1117;
+      color: #c9d1d9;
+      line-height: 1.6;
+    }
+    header {
+      background-color: #161b22;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #30363d;
+    }
+    header .logo {
+      font-size: 20px;
+      font-weight: bold;
+      color: #f0f6fc;
+      text-decoration: none;
+    }
+    nav ul { list-style: none; display: flex; gap: 20px; }
+    nav a {
+      color: #c9d1d9; text-decoration: none; font-size: 14px;
+    }
+    nav a:hover { color: #58a6ff; }
+    .container {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+    h1, h2, h3 { color: #f0f6fc; margin-bottom: 15px; }
+    .about {
+      display: flex;
+      gap: 30px;
+      align-items: flex-start;
+      margin-bottom: 40px;
+    }
+    .about img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 3px solid #30363d;
+      object-fit: cover;
+    }
+    .about-text { flex: 1; }
+    .about-text p { margin-bottom: 15px; }
+    .hobbies ul {
+      list-style: square;
+      margin-left: 20px;
+      margin-top: 10px;
+    }
+    .projects, .contact { margin-bottom: 40px; }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .project-card {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      padding: 15px;
+    }
+    .project-card h3 { margin-bottom: 10px; color: #58a6ff; }
+    .project-card p { font-size: 14px; }
+    footer {
+      border-top: 1px solid #30363d;
+      text-align: center;
+      padding: 20px;
+      background: #161b22;
+      color: #8b949e;
+      margin-top: 40px;
+      font-size: 14px;
+    }
+    a.button {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 6px 12px;
+      background: #21262d;
+      color: #c9d1d9;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 13px;
+      border: 1px solid #30363d;
+    }
+    a.button:hover { background: #30363d; }
+  </style>
+</head>
+<body>
+
+  <header>
+  <a href="#" class="logo">Huy.dev</a>
+  <nav style="margin-left:auto; margin-right:20px;">
+    <ul>
+      <li><a href="#about" data-key="navAbout">Giới thiệu</a></li>
+      <li><a href="#projects" data-key="navProjects">Dự án</a></li>
+      <li><a href="#contact" data-key="navContact">Liên hệ</a></li>
+    </ul>
+  </nav>
+  <!-- Dropdown ngôn ngữ trong header -->
+  <select id="languageSwitcher"
+    style="background:#161b22; color:#c9d1d9; 
+           border:1px solid #30363d; border-radius:6px; 
+           padding:5px 8px; font-size:14px; cursor:pointer;">
+    <option value="vi">🇻🇳 Tiếng Việt</option>
+    <option value="en">🇬🇧 English</option>
+    <option value="jp">🇯🇵 日本語</option>
+  </select>
+  </header>
+
+  <div class="container">
+    <!-- Phần giới thiệu + ảnh cá nhân -->
+    <section id="about" class="about">
+      <img src="avatar.jpg" alt="Ảnh cá nhân">
+      <div class="about-text">
+        <h1 data-key="introTitle">😊Xin chào, tôi là Huy</h1>
+        <ul>
+            <li data-key="birth">📍Nơi sinh: Đà Nẵng, Việt Nam</li>
+            <li data-key="student">🎓 Sinh viên năm 4 ngành IoT và Trí tuệ nhân tạo ứng dụng</li>
+        </ul>
+        <p data-key="introDesc">Kỹ sư IoT/AI, lập trình nhúng & Web/App. Tôi thích tạo ra những dự án kết hợp phần cứng và phần mềm.</p>
+        
+        <div class="hobbies">
+          <h2 data-key="hobbiesTitle">✨ Sở thích cá nhân</h2>
+          <ul>
+            <li data-key="hobby1">Lập trình và thích tự phát triển các vật dụng áp dụng công nghệ</li>
+            <li data-key="hobby2">Nghiên cứu AI & tự động hóa</li>
+            <li data-key="hobby3">Chơi guitar và thích nghe nhạc 🎸</li>
+            <li data-key="hobby4">Thích đi xem phim về thể loại gia đình, công nghệ, đất nước</li>
+            <li data-key="hobby5">Đam mê và hay đọc sách liên quan đến công nghệ</li>
+            <li data-key="hobby6">Du lịch và có ước mơ là khám phá tất cả mọi nơi trên 🌍</li>
+            <li data-key="hobby7">Thích nấu ăn và thử nghiệm các món ăn mới 🍳</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Phần kỹ năng mềm -->
+    <div class="soft skills">
+      <h2 data-key="skillsTitle">💡 Kỹ năng mềm & Phát triển bản thân</h2>
+      <ul>
+        <li data-key="skill1">Kỹ năng giao tiếp và làm việc nhóm</li>
+        <li data-key="skill2">Khả năng giải quyết vấn đề và logic</li>
+        <li data-key="skill3">Quản lý timeline và schedule tối ưu</li>
+        <li data-key="skill4">Luôn sẵn sàng học hỏi các công nghệ mới</li>
+        <li data-key="skill5">Đam mê học ngoại ngữ (tiếng Anh, tiếng Nhật)</li>
+        <li data-key="skill6">Kỹ năng nghiên cứu và áp dụng các công nghệ vào dự án thực tế</li>
+      </ul>
+    </div>
+
+    <section id="projects" class="projects">
+      <h2 data-key="projectsTitle">🚀 Dự án</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3>🐾 <span data-key="project1Title">Hệ thống cho ăn thú cưng</span></h3>
+          <p data-key="project1Desc">STM32F407, loadcell HX711, thẻ SD, giao diện LCD.</p>
+        </div>
+        <div class="project-card">
+          <h3>🌡️ <span data-key="project2Title">IoT giám sát môi trường</span></h3>
+          <p data-key="project2Desc">Cảm biến DHT11, biến trở, hiển thị LCD & gửi MQTT.</p>
+        </div>
+        <div class="project-card">
+          <h3>💡 <span data-key="project3Title">Điều khiển LED qua Web</span></h3>
+          <p data-key="project3Desc">MQTT WebSocket + Raspberry Pi 4 + HTML dashboard.</p>
+        </div>
+        <div class="project-card">
+          <h3>🏠 <span data-key="project4Title">Smart home</span></h3>
+          <p data-key="project4Desc">Raspberry pi 4, cảm biến nhiệt độ, độ ẩm, khí gas, chuông báo cháy, camera, đèn, quạt.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2 data-key="contactTitle">📬 Liên hệ</h2>
+      <p>Email: <a href="mailto:huypro26122004@gmail.com">huypro26122004@gmail.com</a></p>
+      <p>GitHub: <a href="https://github.com/nguyenhuy0426" target="_blank">github.com/nguyenhuy0426</a></p>
+    </section>
+  </div>
+
+  <footer>
+    © 2025 Huy | Portfolio
+  </footer>
+
+  <script>
+    const translations = {
+      vi: {
+        navAbout: "Giới thiệu",
+        navProjects: "Dự án",
+        navContact: "Liên hệ",
+        introTitle: "😊Xin chào, tôi là Huy",
+        birth: "📍Nơi sinh: Đà Nẵng, Việt Nam",
+        student: "🎓 Sinh viên năm 4 ngành IoT và Trí tuệ nhân tạo ứng dụng",
+        introDesc: "Kỹ sư IoT/AI, lập trình nhúng & Web/App. Tôi thích tạo ra những dự án kết hợp phần cứng và phần mềm.",
+        hobbiesTitle: "✨ Sở thích cá nhân",
+        hobby1: "Lập trình và thích tự phát triển các vật dụng áp dụng công nghệ",
+        hobby2: "Nghiên cứu AI & tự động hóa",
+        hobby3: "Chơi guitar và thích nghe nhạc 🎸",
+        hobby4: "Thích đi xem phim về thể loại gia đình, công nghệ, đất nước",
+        hobby5: "Đam mê và hay đọc sách liên quan đến công nghệ",
+        hobby6: "Du lịch và có ước mơ là khám phá tất cả mọi nơi trên 🌍",
+        hobby7: "Thích nấu ăn và thử nghiệm các món ăn mới 🍳",
+        skillsTitle: "💡 Kỹ năng mềm & Phát triển bản thân",
+        skill1: "Kỹ năng giao tiếp và làm việc nhóm",
+        skill2: "Khả năng giải quyết vấn đề và logic",
+        skill3: "Quản lý timeline và schedule tối ưu",
+        skill4: "Luôn sẵn sàng học hỏi các công nghệ mới",
+        skill5: "Đam mê học ngoại ngữ (tiếng Anh, tiếng Nhật)",
+        skill6: "Kỹ năng nghiên cứu và áp dụng các công nghệ vào dự án thực tế",
+        projectsTitle: "🚀 Dự án",
+        project1Title: "Hệ thống cho ăn thú cưng",
+        project1Desc: "STM32F407, loadcell HX711, thẻ SD, giao diện LCD.",
+        project2Title: "IoT giám sát môi trường",
+        project2Desc: "Cảm biến DHT11, biến trở, hiển thị LCD & gửi MQTT.",
+        project3Title: "Điều khiển LED qua Web",
+        project3Desc: "MQTT WebSocket + Raspberry Pi 4 + HTML dashboard.",
+        project4Title: "Smart home",
+        project4Desc: "Raspberry pi 4, cảm biến nhiệt độ, độ ẩm, khí gas, chuông báo cháy, camera, đèn, quạt.",
+        contactTitle: "📬 Liên hệ"
+      },
+      en: {
+        navAbout: "About",
+        navProjects: "Projects",
+        navContact: "Contact",
+        introTitle: "😊Hello, I am Huy",
+        birth: "📍Birthplace: Da Nang, Vietnam",
+        student: "🎓 4th-year student in IoT and Applied AI",
+        introDesc: "IoT/AI Engineer, Embedded & Web/App Developer. I love creating projects that combine hardware and software.",
+        hobbiesTitle: "✨ Personal Hobbies",
+        hobby1: "Programming and developing tech-based tools",
+        hobby2: "Researching AI & automation",
+        hobby3: "Playing guitar and listening to music 🎸",
+        hobby4: "Watching movies about family, technology, and culture",
+        hobby5: "Passionate about reading technology books",
+        hobby6: "Traveling and dreaming of exploring the world 🌍",
+        hobby7: "Cooking and experimenting with new dishes 🍳",
+        skillsTitle: "💡 Soft Skills & Self-Development",
+        skill1: "Communication and teamwork skills",
+        skill2: "Problem-solving and logical thinking",
+        skill3: "Effective time and schedule management",
+        skill4: "Always eager to learn new technologies",
+        skill5: "Passionate about learning foreign languages (English, Japanese)",
+        skill6: "Research and applying technology to real projects",
+        projectsTitle: "🚀 Projects",
+        project1Title: "Pet Feeding System",
+        project1Desc: "STM32F407, HX711 loadcell, SD card, LCD interface.",
+        project2Title: "IoT Environment Monitoring",
+        project2Desc: "DHT11 sensor, potentiometer, LCD display & MQTT.",
+        project3Title: "Web-based LED Control",
+        project3Desc: "MQTT WebSocket + Raspberry Pi 4 + HTML dashboard.",
+        project4Title: "Smart Home",
+        project4Desc: "Raspberry Pi 4, temperature, humidity, gas sensors, fire alarm, camera, lights, fan.",
+        contactTitle: "📬 Contact"
+      },
+      jp: {
+        navAbout: "紹介",
+        navProjects: "プロジェクト",
+        navContact: "連絡先",
+        introTitle: "😊こんにちは、Huyです",
+        birth: "📍出身地：ベトナム・ダナン",
+        student: "🎓 IoTと応用AI専攻の4年生",
+        introDesc: "IoT/AIエンジニア、組み込み & Web/App開発者。ハードとソフトを組み合わせたプロジェクトを作るのが好きです。",
+        hobbiesTitle: "✨ 趣味",
+        hobby1: "プログラミングとテクノロジーを応用したツールの開発",
+        hobby2: "AIと自動化の研究",
+        hobby3: "ギターを弾くことと音楽を聴くこと 🎸",
+        hobby4: "家族、テクノロジー、文化に関する映画鑑賞",
+        hobby5: "技術関連の本を読むのが好き",
+        hobby6: "旅行と世界中を探検する夢 🌍",
+        hobby7: "料理と新しいレシピの挑戦 🍳",
+        skillsTitle: "💡 ソフトスキル & 自己開発",
+        skill1: "コミュニケーションとチームワーク能力",
+        skill2: "問題解決と論理的思考",
+        skill3: "効率的な時間とスケジュール管理",
+        skill4: "新しい技術を学ぶ意欲",
+        skill5: "外国語（英語、日本語）の習得に情熱",
+        skill6: "技術を実際のプロジェクトに応用するスキル",
+        projectsTitle: "🚀 プロジェクト",
+        project1Title: "ペット給餌システム",
+        project1Desc: "STM32F407, HX711ロードセル, SDカード, LCDインターフェース。",
+        project2Title: "IoT環境モニタリング",
+        project2Desc: "DHT11センサー、可変抵抗、LCD表示、MQTT。",
+        project3Title: "Web経由のLED制御",
+        project3Desc: "MQTT WebSocket + Raspberry Pi 4 + HTMLダッシュボード。",
+        project4Title: "スマートホーム",
+        project4Desc: "Raspberry Pi 4、温度、湿度、ガスセンサー、火災警報、カメラ、照明、ファン。",
+        contactTitle: "📬 連絡先"
+      }
+    };
+
+    const languageSwitcher = document.getElementById("languageSwitcher");
+    languageSwitcher.addEventListener("change", (e) => {
+      const lang = e.target.value;
+      document.querySelectorAll("[data-key]").forEach(el => {
+        const key = el.getAttribute("data-key");
+        el.textContent = translations[lang][key];
+      });
+    });
+  </script>
+</body>
+</html>
